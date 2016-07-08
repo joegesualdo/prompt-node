@@ -1,0 +1,24 @@
+{
+  "name": "@joegesualdo/prompt-node",
+  "repository": "joegesualdo/prompt-node",
+  "version": "0.0.1",
+  "description": "Command line prompt.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "npm run build && ./node_modules/ava/cli.js -v test.js",
+    "build": "./node_modules/distify-cli/cli.js --input-file=./index.js --output-dir=./dist --is-node",
+    "prepublish": "npm run build"
+  },
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "distify-cli": "0.0.13"
+  },
+  "dependencies": {},
+  "keywords": [
+    "prompt",
+    "cli",
+    "command",
+    "line"
+  ],
+  "author": {}
+}
