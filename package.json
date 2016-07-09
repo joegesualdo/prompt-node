@@ -13,7 +13,9 @@
     "ava": "^0.15.2",
     "distify-cli": "0.0.13"
   },
-  "dependencies": {},
+  "dependencies": {
+    "chalk": "^1.1.3"
+  },
   "keywords": [
     "prompt",
     "cli",
