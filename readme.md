@@ -47,7 +47,7 @@ $ npm test
 Returns: `prompt`
 
 ```javascript
-import prompt from '@joegesualdo/promptNode'
+import prompt from '@joegesualdo/prompt-node'
 
 new Prompt('Are you tired?', {
   required: true,
@@ -62,7 +62,7 @@ new Prompt('Are you tired?', {
 > Starts the prompt
 
 ```javascript
-import prompt from '@joegesualdo/promptNode'
+import prompt from '@joegesualdo/prompt-node'
 
 new Prompt('Are you tired?')
 .on('done', answer => {
@@ -81,7 +81,7 @@ new Prompt('Are you tired?')
 | fn   | `Function` |  `N/A`  | Function to run    | `N/A`|
 
 ```javascript
-import prompt from '@joegesualdo/promptNode'
+import prompt from '@joegesualdo/prompt-node'
 
 new Prompt('Are you tired?')
 .on('validationError', answer => {
