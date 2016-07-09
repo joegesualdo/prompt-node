@@ -1,4 +1,4 @@
-## @joegesualdo/prompt-node [![Build Status](https://travis-ci.org/joegesualdo/prompt-node.svg?branch=master)](https://travis-ci.org/joegesualdo/prompt-node)
+## prompt [![Build Status](https://travis-ci.org/joegesualdo/prompt-node.svg?branch=master)](https://travis-ci.org/joegesualdo/prompt-node)
 > Command line prompt.
 
 ![demo](https://raw.github.com/joegesualdo/prompt-node/master/demo.gif)
