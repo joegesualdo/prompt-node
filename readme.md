@@ -15,7 +15,7 @@ $ npm install --save @joegesualdo/prompt-node
 
 ## Usage
 ```javascript
-import prompt from '@joegesualdo/promptNode'
+import prompt from '@joegesualdo/prompt-node'
 
 new Prompt('Are you tired?')
 .on('done', answer => {
