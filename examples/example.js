@@ -1,6 +1,6 @@
 let Prompt = require('./../dist').default
 
-new Prompt('Are you tired?', {
+new Prompt('Favorite quote?', {
   // required: true,
   // hidden: true,
   // validation: (answer) => {

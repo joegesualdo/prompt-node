@@ -71,8 +71,6 @@ module.exports =
 
 	    var _ref = arguments.length <= 1 || arguments[1] === undefined ? {} : arguments[1];
 
-	    var _ref$type = _ref.type;
-	    var type = _ref$type === undefined ? 'string' : _ref$type;
 	    var _ref$hidden = _ref.hidden;
 	    var hidden = _ref$hidden === undefined ? false : _ref$hidden;
 	    var _ref$required = _ref.required;
@@ -86,7 +84,6 @@ module.exports =
 
 	    // Set instance properties
 	    this.text = text;
-	    this.type = type;
 	    this.hidden = hidden;
 	    this.required = required;
 	    this.validation = validation;
