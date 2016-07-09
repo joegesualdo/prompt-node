@@ -1,5 +1,5 @@
 import test from 'ava';
-import @joegesualdo/prompt-node from './dist'
+import prompt from './dist'
 
 test(t => {
     t.deepEqual([1, 2], [1, 2]);
