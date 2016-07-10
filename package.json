@@ -1,7 +1,7 @@
 {
   "name": "@joegesualdo/prompt-node",
   "repository": "joegesualdo/prompt-node",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Command line prompt.",
   "main": "./dist/index.js",
   "scripts": {

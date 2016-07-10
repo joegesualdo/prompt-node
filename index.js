@@ -118,6 +118,7 @@ class Prompt {
           process.stdout.write(`${instance.text} ${chalk.blue(answer)}`);
         }
         process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+        instance.onValidationError(answer)
       } else {
         process.stdout.write('\n');
         // clean listeners
