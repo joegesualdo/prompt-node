@@ -61,6 +61,10 @@ module.exports =
 
 	var _readline2 = _interopRequireDefault(_readline);
 
+	var _stringLength = __webpack_require__(3);
+
+	var _stringLength2 = _interopRequireDefault(_stringLength);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -138,11 +142,11 @@ module.exports =
 	          process.emit('SIGINT');
 	        } else if (key && key.name === 'left') {
 	          answerCursorPos--;
-	          process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+	          process.stdout.cursorTo((0, _stringLength2.default)(instance.text) + 1 + answerCursorPos);
 	        } else if (key && key.name === 'right') {
-	          if (answerCursorPos !== answer.length) {
+	          if (answerCursorPos !== (0, _stringLength2.default)(answer)) {
 	            answerCursorPos++;
-	            process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+	            process.stdout.cursorTo((0, _stringLength2.default)(instance.text) + 1 + answerCursorPos);
 	          }
 	        } else if (key && key.name === 'up') {
 	          // Do something
@@ -154,13 +158,13 @@ module.exports =
 	          answerCursorPos--;
 	          process.stdout.clearLine();
 	          process.stdout.cursorTo(0);
-	          answer = answer.slice(0, answer.length - 1);
+	          answer = answer.slice(0, (0, _stringLength2.default)(answer) - 1);
 	          if (instance.hidden) {
 	            process.stdout.write(instance.text + ' ' + _chalk2.default.blue(convertStringToHidden(answer)));
 	          } else {
 	            process.stdout.write(instance.text + ' ' + _chalk2.default.blue(answer));
 	          }
-	          process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+	          process.stdout.cursorTo((0, _stringLength2.default)(instance.text) + 1 + answerCursorPos);
 	          instance.onBackspace();
 	        } else {
 	          var oldAnswer = answer;
@@ -173,7 +177,7 @@ module.exports =
 	          } else {
 	            process.stdout.write(instance.text + ' ' + _chalk2.default.blue(answer));
 	          }
-	          process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+	          process.stdout.cursorTo((0, _stringLength2.default)(instance.text) + 1 + answerCursorPos);
 
 	          instance.onChange(oldAnswer, answer);
 	        }
@@ -194,7 +198,7 @@ module.exports =
 	          } else {
 	            process.stdout.write(instance.text + ' ' + _chalk2.default.blue(answer));
 	          }
-	          process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+	          process.stdout.cursorTo((0, _stringLength2.default)(instance.text) + 1 + answerCursorPos);
 	          instance.onValidationError(answer);
 	        } else {
 	          process.stdout.write('\n');
@@ -221,6 +225,7 @@ module.exports =
 	}();
 
 	function insert(str, what, index) {
+	  // should we use string-length here, incase the user uses chalk in the answer?
 	  if (str.length === 0) {
 	    return what;
 	  }
@@ -252,6 +257,12 @@ module.exports =
 /***/ function(module, exports) {
 
 	module.exports = require("readline");
+
+/***/ },
+/* 3 */
+/***/ function(module, exports) {
+
+	module.exports = require("string-length");
 
 /***/ }
 /******/ ]);

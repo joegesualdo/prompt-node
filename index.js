@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import readline from 'readline';
+import stringLength from 'string-length';
 
 class Prompt {
   constructor(text = '', {
@@ -61,11 +62,11 @@ class Prompt {
         process.emit('SIGINT');
       } else if (key && key.name === 'left') {
         answerCursorPos--;
-        process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+        process.stdout.cursorTo(stringLength(instance.text) + 1 + answerCursorPos);
       } else if (key && key.name === 'right') {
-        if (answerCursorPos !== answer.length) {
+        if (answerCursorPos !== stringLength(answer)) {
           answerCursorPos++;
-          process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+          process.stdout.cursorTo(stringLength(instance.text) + 1 + answerCursorPos);
         }
       } else if (key && key.name === 'up') {
         // Do something
@@ -77,13 +78,13 @@ class Prompt {
         answerCursorPos--;
         process.stdout.clearLine();
         process.stdout.cursorTo(0);
-        answer = answer.slice(0, answer.length - 1);
+        answer = answer.slice(0, stringLength(answer) - 1);
         if (instance.hidden) {
           process.stdout.write(`${instance.text} ${chalk.blue(convertStringToHidden(answer))}`);
         } else {
           process.stdout.write(`${instance.text} ${chalk.blue(answer)}`);
         }
-        process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+        process.stdout.cursorTo(stringLength(instance.text) + 1 + answerCursorPos);
         instance.onBackspace();
       } else {
         let oldAnswer = answer;
@@ -96,7 +97,7 @@ class Prompt {
         } else {
           process.stdout.write(`${instance.text} ${chalk.blue(answer)}`);
         }
-        process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+        process.stdout.cursorTo(stringLength(instance.text) + 1 + answerCursorPos);
 
         instance.onChange(oldAnswer, answer);
       }
@@ -117,7 +118,7 @@ class Prompt {
         } else {
           process.stdout.write(`${instance.text} ${chalk.blue(answer)}`);
         }
-        process.stdout.cursorTo(instance.text.length + 1 + answerCursorPos);
+        process.stdout.cursorTo(stringLength(instance.text) + 1 + answerCursorPos);
         instance.onValidationError(answer)
       } else {
         process.stdout.write('\n');
@@ -141,6 +142,7 @@ class Prompt {
 }
 
 function insert(str, what, index) {
+  // should we use string-length here, incase the user uses chalk in the answer?
   if (str.length === 0) {
     return what;
   }

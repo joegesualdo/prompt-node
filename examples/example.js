@@ -1,6 +1,7 @@
 let Prompt = require('./../dist').default
+let chalk = require('chalk');
 
-new Prompt('Favorite quote?', {
+new Prompt(`${chalk.green('?')} Favorite quote?`, {
   // required: true,
   // hidden: true,
   validation: (answer) => {
